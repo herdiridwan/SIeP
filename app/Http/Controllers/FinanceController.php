@@ -17,11 +17,12 @@ class FinanceController extends Controller
     public function index()
     {
         $finance = Finance::paginate(50);
+      
 
-        $first = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
-        $last = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
-        $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
-        $finances = Finance::where('created_at', '>=', $max)->get();
+        // $first = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        // $last = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        // $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        // $finances = Finance::where('created_at', '>=', $max)->get();
 
 
         if (session()->has('first')) {
@@ -30,18 +31,20 @@ class FinanceController extends Controller
             $finances = Finance::where('created_at', '<', Carbon::parse($last)->addDay())->where('created_at', '>=', $first)->get();
         }
         
+       
 
-        return view('admin/dataKeuangan', compact('finance', 'first', 'last', 'max', 'finances'));
+        return view('admin/dataKeuangan', compact('finance'));
     }
 
     public function indexhrd()
     {
         $finance = Finance::paginate(50);
+      
 
-        $first = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
-        $last = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
-        $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
-        $finances = Finance::where('created_at', '>=', $max)->get();
+        // $first = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        // $last = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        // $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        // $finances = Finance::where('created_at', '>=', $max)->get();
 
 
         if (session()->has('first')) {
@@ -50,8 +53,9 @@ class FinanceController extends Controller
             $finances = Finance::where('created_at', '<', Carbon::parse($last)->addDay())->where('created_at', '>=', $first)->get();
         }
         
+       
 
-        return view('direktur/dataKeuangan', compact('finance', 'first', 'last', 'max', 'finances'));
+        return view('direktur/dataKeuangan', compact('finance'));
     }
 
     public function indexSearch(Request $request)
