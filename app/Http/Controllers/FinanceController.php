@@ -34,6 +34,26 @@ class FinanceController extends Controller
         return view('admin/dataKeuangan', compact('finance', 'first', 'last', 'max', 'finances'));
     }
 
+    public function indexhrd()
+    {
+        $finance = Finance::paginate(50);
+
+        $first = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $last = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $max = Carbon::parse(Finance::latest('id')->first()->datetime)->format('Y-m-d');
+        $finances = Finance::where('created_at', '>=', $max)->get();
+
+
+        if (session()->has('first')) {
+            $first = session()->get('first');
+            $last = session()->get('last');
+            $finances = Finance::where('created_at', '<', Carbon::parse($last)->addDay())->where('created_at', '>=', $first)->get();
+        }
+        
+
+        return view('direktur/dataKeuangan', compact('finance', 'first', 'last', 'max', 'finances'));
+    }
+
     public function indexSearch(Request $request)
     {
         $first = $request->tanggalAwal;

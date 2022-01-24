@@ -98,4 +98,7 @@ Route::middleware(['auth', 'user'])->group(function () {
     Route::post('penggajian', 'PayrollHistoryController@indexPostUser');
 
     Route::post('printPdf/{employee}/{month}/{year}/employee', 'PayrollHistoryController@printPDF');
+
+    Route::get('hrd/keuangan', 'FinanceController@indexhrd');
+    Route::get('hrd/dashboard', 'EmployeeController@dashboardhrd');
 });

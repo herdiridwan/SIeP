@@ -135,7 +135,7 @@
             <li class="nav-item {{ (request()->is('admin/komplain*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('admin/komplain') }}">
                     <i class="fas fa-fw fa-envelope"></i>
-                    <span>Komplain</span></a>
+                    <span>Komplain Dan Klaim</span></a>
             </li>
 
             <hr class="sidebar-divider">

@@ -14,8 +14,8 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
+    
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
           <div class="card-body p-0">
             <div class="p-5">
               <div class="text-center">
-                <h2 class="h4 text-gray-900 mb-4 mt-2">Silahkan Masuk</h2>
+                <h2 class="h4 text-gray-900 mb-4 mt-2" style="font-family: 'Dongle', sans-serif; font-size: 50px;">Silahkan Masuk</h2>
                 @error('blocked')
                 <div class="alert alert-danger alert-block">
                   <button type="button" class="close" data-dismiss="alert">×</button>

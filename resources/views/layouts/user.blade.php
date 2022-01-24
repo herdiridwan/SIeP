@@ -30,6 +30,40 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
 
+            @if(\Auth::user()->username == 'dinnyhadiyani@gmail.com' )
+                
+            
+            <li class="nav-item {{ (request()->is('profile*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('profile') }}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Profile</span></a>
+            </li>
+
+              <!-- Nav Item - Dashboard -->
+              <li class="nav-item {{ (request()->is('hrd/dashboard*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('hrd/dashboard') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+              </li>
+
+               <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item {{ (request()->is('hrd/keuangan*')) ? 'active' : '' }}">
+                <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#keuangan"
+                    aria-expanded="true" aria-controls="keuangan">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Keuangan (Kas)</span>
+                </a>
+                <div id="keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ url('hrd/keuangan') }}">Data Keuangan (Kas)</a>
+                    </div>
+                </div>
+            </li>
+
+            @endif
+
+            @if( \Auth::user()->username != 'dinnyhadiyani@gmail.com' )
+
             <li class="nav-item {{ (request()->is('profile*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('profile') }}">
                     <i class="fas fa-fw fa-user"></i>
@@ -69,6 +103,7 @@
                     <span>Komplain</span></a>
             </li>
 
+            @endif
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/logout') }}">

@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Detail Komplain')
+@section('title', 'Detail Komplain Dan Klaim')
 
 @section('head-link')
 <!-- Custom fonts for this template-->

@@ -39,7 +39,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>Kirimkan komplain baru</h4>
+                            <h4>Kirimkan Komplain/Klaim Baru</h4>
                             @if(session()->has('berhasil'))
                             <div class="alert alert-success alert-block">
                                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -96,7 +96,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h4>Riwayat Komplain</h4>
+                            <h4>Riwayat Komplain/Klaim</h4>
                             @if(session()->has('delete_gagal'))
                             <div class="alert alert-danger alert-block">
                                 <button type="button" class="close" data-dismiss="alert">×</button>

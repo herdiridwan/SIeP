@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Komplain Karyawan Hadiyani & Partners Law Firm')
+@section('title', 'Komplain Dan KlaimKaryawan Hadiyani & Partners Law Firm')
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -23,8 +23,8 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 text-gray-800">Komplain Karyawan Hadiyani & Partners Law Firm</h1>
-    <p class="mb-4">Seluruh data komplain karyawan Hadiyani & Partners Law Firm</p>
+    <h1 class="h3 text-gray-800">Komplain dan Klaim Karyawan Hadiyani & Partners Law Firm</h1>
+    <p class="mb-4">Seluruh data komplain dan klaim karyawan Hadiyani & Partners Law Firm</p>
     @if (session()->has('response'))
     <div class="alert alert-success alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
