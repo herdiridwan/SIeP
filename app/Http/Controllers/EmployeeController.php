@@ -177,7 +177,7 @@ class EmployeeController extends Controller
                 }
             }
         }
-        
+
 
         $education = \App\Education::all();
 
@@ -239,7 +239,7 @@ class EmployeeController extends Controller
             $imageName = auth()->user()->employee->full_name . '.' . $request->image->extension();
             $request->image->move(public_path('img/employeePic/'), $imageName);
             $employee->profile_pic = $imageName;
-        } 
+        }
 
         $employee->address = $request->alamat;
         $employee->phone = $request->telp;
@@ -294,6 +294,30 @@ class EmployeeController extends Controller
     }
 
     public function updatePassword(Request $request)
+    {
+        $id = auth()->user()->employee->id;
+
+
+        $request->validate([
+            'password' => 'required|same:cpassword|min:8',
+            'cpassword' => 'required|min:8',
+            'oldpassword' => 'required',
+        ]);
+
+        if (!Hash::check($request->oldpassword, auth()->user()->password)) {
+            session()->flash('password_salah', 'Password lama yang anda masukan salah.');
+            return redirect()->back();
+        }
+
+        $user = \App\User::find($id);
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        session()->flash('password_update', 'Password berhasil dirubah.');
+        return redirect()->back();
+    }
+
+    public function updatePasswordAdmin(Request $request)
     {
         $id = auth()->user()->employee->id;
 

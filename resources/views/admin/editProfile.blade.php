@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit '.$employee->full_name )
+@section('title', 'Edit Password Admin' )
 
 @section('head-link')
 <!-- Custom fonts for this template-->
@@ -117,7 +117,7 @@
                 <div class="form-group row">
                   <label for="name" class="col-4 col-form-label">Nomor KTP</label>
                   <div class="col-8">
-                    <input id="nik" name="nik" value="{{ $employee->nik }}" 
+                    <input id="nik" name="nik" value="{{ $employee->nik }}"
                       class="form-control here @error('nik') is-invalid @enderror" type="text">
                     @error('nik')
                     <div class="invalid-feedback">
@@ -129,7 +129,7 @@
                 <div class="form-group row">
                   <label for="name" class="col-4 col-form-label">Nomor NPWP</label>
                   <div class="col-8">
-                    <input id="npwp" name="npwp" value="{{ $employee->npwp }}" 
+                    <input id="npwp" name="npwp" value="{{ $employee->npwp }}"
                       class="form-control here @error('npwp') is-invalid @enderror" type="text">
                     @error('npwp')
                     <div class="invalid-feedback">
@@ -181,7 +181,7 @@
                     </div>
                     @enderror
                   </div>
-                </div> 
+                </div>
                 <div class="form-group row">
                   <label for="pendidikan" class="col-4 col-form-label">Pendidikan Terakhir</label>
                   <div class="col-8">
@@ -308,11 +308,11 @@
           function readURL(input) {
             if (input.files && input.files[0]) {
               var reader = new FileReader();
-              
+
               reader.onload = function(e) {
                 $('#blah').attr('src', e.target.result);
               }
-              
+
               reader.readAsDataURL(input.files[0]); // convert to base64 string
             }
           }

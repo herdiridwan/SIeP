@@ -159,22 +159,22 @@
 <!-- Page level custom scripts -->
 <script src="{{ URL::asset('js/demo/datatables-demo.js') }}"></script>
 
-{{-- <script>
+<script>
     $(function () {
-        $(".alert-success").delay(3000).slideUp(300);
+        // $(".alert-success").delay(3000).slideUp(300);
         $(".clickable-row").click(function () {
             window.location = $(this).data("href");
         });
 
-            $("#file-1").fileinput({    
-                theme: 'fa',
-                showUpload: false,
-                showClose: false,
-            })
+            // $("#file-1").fileinput({    
+            //     theme: 'fa',
+            //     showUpload: false,
+            //     showClose: false,
+            // })
 
-            var $container = $(document.createElement('div')).append(content);
-    $container.find('.file-thumbnail-footer').remove();
-    return $container.html();
+    //         var $container = $(document.createElement('div')).append(content);
+    // $container.find('.file-thumbnail-footer').remove();
+    // return $container.html();
     });
-</script> --}}
+</script>
 @endsection

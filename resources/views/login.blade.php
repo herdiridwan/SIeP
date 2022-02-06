@@ -14,8 +14,7 @@
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link
-    href="https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap" rel="stylesheet">
-    
+    href=<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@700&display=swap" rel="stylesheet">
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -36,7 +35,7 @@
           <div class="card-body p-0">
             <div class="p-5">
               <div class="text-center">
-                <h2 class="h4 text-gray-900 mb-4 mt-2" style="font-family: 'Dongle', sans-serif; font-size: 50px;">Silahkan Masuk</h2>
+                <h2 class="h4 text-gray-900 mb-4 mt-2" style="font-family: 'Readex Pro', sans-serif; font-size: 24px;">Silahkan Masuk</h2>
                 @error('blocked')
                 <div class="alert alert-danger alert-block">
                   <button type="button" class="close" data-dismiss="alert">×</button>
@@ -61,7 +60,7 @@
                     class="@error('password') is-invalid @enderror form-control form-control-user text-center"
                     id="exampleInputPassword" placeholder="Password" name="password">
                   <div class="valid-feedback text-center">
-                  
+
                   </div>
                   @error('password')
                   <div class="invalid-feedback text-center">
@@ -77,7 +76,7 @@
                 </div>
                 <button type="submit" class="btn btn-info btn-user btn-block" style="font-size:20px">Login</button>
                 <hr>
-               
+
                 <div class="valid-feedback text-center d-block text-info">
                 <a data-toggle="modal" data-target=".bd-example-modal-sm" href="#">Lupa Password ?</a>
                 </div>
@@ -92,7 +91,7 @@
                     </div>
                   </div>
                 </div>
-                
+
               </form>
             </div>
           </div>

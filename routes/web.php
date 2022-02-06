@@ -46,6 +46,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/data-karyawan/{employee}', 'EmployeeController@show');
     Route::get('admin/data-karyawan/{employee}/edit', 'EmployeeController@editAdmin');
     Route::patch('admin/data-karyawan/{id}', 'EmployeeController@updateProfileFromAdmin');
+    Route::patch('admin/update-password', 'EmployeeController@updatePasswordAdmin');
     // Jabatan
     Route::get('admin/jabatan', 'PositionController@index');
     Route::get('admin/jabatan/input-jabatan', 'PositionController@create');
@@ -101,4 +102,5 @@ Route::middleware(['auth', 'user'])->group(function () {
 
     Route::get('hrd/keuangan', 'FinanceController@indexhrd');
     Route::get('hrd/dashboard', 'EmployeeController@dashboardhrd');
+    Route::get('hrd/penggajian', 'PayrollHistoryController@indexhrd');
 });

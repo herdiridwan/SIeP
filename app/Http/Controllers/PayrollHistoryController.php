@@ -64,6 +64,58 @@ class PayrollHistoryController extends Controller
         return view('admin/penggajian', compact('employees', 'monthUnique', 'yearUnique', 'firstMonth', 'lastMonth', 'postMonth', 'postYear', 'hasilPenambahan', 'hasilPotongan', 'potonganPerKaryawan', 'penambahanPerKaryawan', 'penambahan', 'potongan'));
     }
 
+    public function indexhrd()
+    {
+        //penanggalan
+        $now = Carbon::now();
+        $firstMonth = Carbon::now()->startOfMonth();
+        $lastMonth = Carbon::now()->endOfMonth();
+        $postMonth = Carbon::now()->month;
+        $postYear = Carbon::now()->year;
+
+        $date = Presence::get();
+
+        $month = array();
+        $year = array();
+        foreach ($date as $d) {
+            $month[] = Carbon::parse($d->created_at)->month;
+            $year[] = Carbon::parse($d->created_at)->year;
+        }
+        if (count($date) == 0) {
+            $month[] = Carbon::now()->month;
+            $year[] = Carbon::now()->year;
+        }
+
+        //penambahan
+        $penambahan = Allowance::where('type', 'penambahan')->get();
+        $potongan = Allowance::where('type', 'potongan')->get();
+        $employees = Employee::get();
+
+        $hasilPenambahan = array();
+        $hasilPotongan = array();
+        $penambahanPerKaryawan = array();
+        $potonganPerKaryawan = array();
+        foreach ($employees as $emplyee) {
+            $pe = 0;
+            $po = 0;
+            foreach ($penambahan as $nambah) {
+                $pe = $pe + $nambah->hitungPenambahanPotongan($emplyee, $firstMonth, $lastMonth);
+                $penambahanPerKaryawan[$emplyee->id][] = $nambah->hitungPenambahanPotongan($emplyee, $firstMonth, $lastMonth);
+            }
+            foreach ($potongan as $potong) {
+                $po = $po + $potong->hitungPenambahanPotongan($emplyee, $firstMonth, $lastMonth);
+                $potonganPerKaryawan[$emplyee->id][] = $potong->hitungPenambahanPotongan($emplyee, $firstMonth, $lastMonth);
+            }
+            $hasilPenambahan[] = $pe;
+            $hasilPotongan[] = $po;
+        }
+
+        $monthUnique = array_unique($month);
+        $yearUnique = array_unique($year);
+
+        return view('direktur/penggajian', compact('employees', 'monthUnique', 'yearUnique', 'firstMonth', 'lastMonth', 'postMonth', 'postYear', 'hasilPenambahan', 'hasilPotongan', 'potonganPerKaryawan', 'penambahanPerKaryawan', 'penambahan', 'potongan'));
+    }
+
     public function indexPost(Request $request)
     {
         //penanggalan
@@ -325,7 +377,7 @@ class PayrollHistoryController extends Controller
         // dd($hasilPenambahan);
         $monthUnique = array_unique($month);
         $yearUnique = array_unique($year);
-        
+
 
 
         return view('user/penggajian', compact('employees', 'monthUnique', 'yearUnique', 'firstMonth', 'lastMonth', 'postMonth', 'postYear', 'hasilPenambahan', 'hasilPotongan', 'potonganPerKaryawan', 'penambahanPerKaryawan', 'penambahan', 'potongan'));

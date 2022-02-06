@@ -74,6 +74,9 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-2">
+            <a href="{{ url('admin/update-password') }}" class="profile-edit-btn btn btn-success">Ganti Password</a>
+        </div>
     </div>
 </div>
 <!-- /.container-fluid -->

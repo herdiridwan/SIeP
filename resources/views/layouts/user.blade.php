@@ -31,12 +31,12 @@
             <!-- Nav Item - Pages Collapse Menu -->
 
             @if(\Auth::user()->username == 'dinnyhadiyani@gmail.com' )
-                
-            
+
+
             <li class="nav-item {{ (request()->is('profile*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('profile') }}">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>Profile</span></a>
+                    <span>Profile Direktur</span></a>
             </li>
 
               <!-- Nav Item - Dashboard -->
@@ -51,7 +51,7 @@
                 <a class="nav-link collapsed" href="" data-toggle="collapse" data-target="#keuangan"
                     aria-expanded="true" aria-controls="keuangan">
                     <i class="fas fa-fw fa-book"></i>
-                    <span>Keuangan (Kas)</span>
+                    <span>Keuangan</span>
                 </a>
                 <div id="keuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -59,6 +59,13 @@
                     </div>
                 </div>
             </li>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item {{ (request()->is('hrd/penggajian*')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('hrd/penggajian') }}">
+                    <i class="fas fa-fw fa-money-bill"></i>
+                    <span>Penggajian</span></a>
+              </li>
 
             @endif
 
@@ -100,7 +107,7 @@
             <li class="nav-item {{ (request()->is('komplain*')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('komplain') }}">
                     <i class="fas fa-fw fa-envelope"></i>
-                    <span>Komplain</span></a>
+                    <span>Komplain Dan Klaim</span></a>
             </li>
 
             @endif

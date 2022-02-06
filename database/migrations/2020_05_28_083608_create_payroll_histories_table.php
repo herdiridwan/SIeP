@@ -15,7 +15,7 @@ class CreatePayrollHistoriesTable extends Migration
     {
         Schema::create('payroll_histories', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('employee_id')->constrained('employees');
+            $table->foreignId('employee_id')->constrained('employees')->cascadeOnDelete();
             $table->integer('gaji_pokok');
             $table->integer('penambahan');
             $table->integer('potongan');
