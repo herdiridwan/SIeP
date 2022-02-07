@@ -21,7 +21,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h4>Ganti Password</h4>
+              <h4>Akun</h4>
               @if (session()->has('password_update'))
               <div class="alert alert-success alert-block">
                 <button type="button" class="close" data-dismiss="alert">×</button>
@@ -32,15 +32,25 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-md-12 overflow-auto">
-              <form action="{{ url('admin/akun/'.$employee->user->id) }}" method="POST">
+            <div class="col-md-12">
+              <form action="{{ url('admin/update-passwordd') }}" method="POST">
                 @csrf
                 @method('patch')
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Old Password</label>
+                  <input type="password" class="form-control @if (session()->has('password_salah')) is-invalid @endif"
+                    id="exampleInputPassword1" name="oldpassword" required>
+                  @if (session()->has('password_salah'))
+                  <div class="invalid-feedback">
+                    {{ session()->get('password_salah') }}
+                  </div>
+                  @endif
+                </div>
                 <div class="form-group">
                   <label for="exampleInputPassword2">New Password</label>
                   <input type="password" class="form-control @error('password') is-invalid @enderror"
                     id="exampleInputPassword2" name="password" required>
-                    <span class="form-text text-muted">* Minimal 8 karakter</span>
+                    <span class="form-text text-muted">* minimal 8 karakter</span>
                   @error('password')
                   <div class="invalid-feedback">
                     {{ $message }}
@@ -67,6 +77,7 @@
         </div>
       </div>
     </div>
+  </div>
 </div>
 @endsection
 

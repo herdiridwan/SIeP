@@ -317,10 +317,17 @@ class EmployeeController extends Controller
         return redirect()->back();
     }
 
+    public function showPasswordAdmin()
+    { 
+        $id = auth()->user()->id;
+        $employee = $id;
+        $education = \App\Education::all();
+        return view('admin/editPassword', compact('employee', 'education'));
+    }
+
     public function updatePasswordAdmin(Request $request)
     {
-        $id = auth()->user()->employee->id;
-
+        $id = auth()->user()->id;
 
         $request->validate([
             'password' => 'required|same:cpassword|min:8',

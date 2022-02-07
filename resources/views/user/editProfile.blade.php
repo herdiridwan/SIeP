@@ -304,29 +304,6 @@
           });
 </script>
 
-<script>
-  $('#inputGroupFile01').on('change',function(){
-              //get the file name
-              var fileName = $(this).val();
-              var cleanFileName = fileName.replace('C:\\fakepath\\', " ");
-              //replace the "Choose a file" label
-              $(this).next('.custom-file-label').html(cleanFileName);
-          })
-
-          function readURL(input) {
-            if (input.files && input.files[0]) {
-              var reader = new FileReader();
-              
-              reader.onload = function(e) {
-                $('#blah').attr('src', e.target.result);
-              }
-              
-              reader.readAsDataURL(input.files[0]); // convert to base64 string
-            }
-          }
-
-          $("#inputGroupFile01").change(function() {
-            readURL(this);
-          });
+P
 </script>
 @endsection

@@ -46,7 +46,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('admin/data-karyawan/{employee}', 'EmployeeController@show');
     Route::get('admin/data-karyawan/{employee}/edit', 'EmployeeController@editAdmin');
     Route::patch('admin/data-karyawan/{id}', 'EmployeeController@updateProfileFromAdmin');
-    Route::patch('admin/update-password', 'EmployeeController@updatePasswordAdmin');
+    Route::get('admin/update-password', 'EmployeeController@showPasswordAdmin');
+    Route::patch('admin/update-passwordd', 'EmployeeController@updatePasswordAdmin');
     // Jabatan
     Route::get('admin/jabatan', 'PositionController@index');
     Route::get('admin/jabatan/input-jabatan', 'PositionController@create');
